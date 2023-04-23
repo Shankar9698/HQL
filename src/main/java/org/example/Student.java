@@ -10,6 +10,8 @@ public class Student {
     @Id
     private int id;
     private String name;
+    private int sal;
     private String city;
     private String state;
+    private String country;
 }
