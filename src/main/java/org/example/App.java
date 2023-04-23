@@ -51,7 +51,7 @@ public class App
         }
        */
       /* Query query= session.createQuery("from Student where city='hyd'");
-       Query query=session.createQuery("from Student where id=:id or city=:city");
+       Query query=session.createQuery("from Student where id=:id or city=:city");//hql
        List<Student> students=query.list();
         query.setParameter("id", 1);
         query.setParameter("city","hyd");
@@ -60,9 +60,7 @@ public class App
 q.setParameter("id",1);
         System.out.println(q.uniqueResult());
 */
-
-
-        Criteria criteria =session.createCriteria(Student.class);
+        Criteria criteria =session.createCriteria(Student.class); //hcql
         //criteria.add(Restrictions.gt("sal",1500));
         //criteria.add(Restrictions.lt("sal",1200));
        // criteria.add(Restrictions.like("name","s%"));
