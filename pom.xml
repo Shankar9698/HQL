@@ -34,6 +34,13 @@
       <version>1.18.26</version>
       <scope>provided</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>5.6.15.Final</version>
+    </dependency>
+
 
     <dependency>
       <groupId>junit</groupId>

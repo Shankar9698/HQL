@@ -1,10 +1,12 @@
 package org.example;
 
 
+import net.sf.ehcache.hibernate.EhCacheRegionFactory;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cache.ehcache.internal.EhcacheRegionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
@@ -67,12 +69,25 @@ public class App {
         }
      */
         // first level cache by default it will be activated
-        Student s=session.get(Student.class,1);
+       /* Student s=session.get(Student.class,1);
         System.out.println(s);
 
         Student ss=session.get(Student.class,2);
-        System.out.println(ss);
+        System.out.println(ss);*/
       // transaction.commit();
+
+        //second level cache
+      //  EhcacheRegionFactory -> used to get package which should be updated in HibernateUtils class
+
+       SessionFactory sessionFactory1= new HibernateUtils().getSessionFactory();
+       Session session1=sessionFactory1.openSession();
+       Student stu1=session1.get(Student.class,1);
+
+       Session session2=sessionFactory1.openSession();
+      Student stu2= session2.get(Student.class, 1);
+
+        System.out.println(stu1);
+        System.out.println(stu2);
         session.close();
         sessionFactory.close();
 
